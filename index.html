@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Biraj Acharya — Cybersecurity & Networking Student</title>
+<meta name="description" content="Portfolio of Biraj Acharya, cybersecurity & networking student at Softwarica College. Pentesting, network security, digital forensics." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand"><span class="dot"></span> biraj<span class="accent">.sec</span></a>
+    <nav class="nav-links">
+      <a href="#skills">Skills</a>
+      <a href="#case-study">Case Study</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary btn-sm">Hire Me</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="status-pill"><span class="ping"></span> System Online · Available for Engagements</div>
+      <h1>Biraj <span class="gradient">Acharya</span></h1>
+      <p class="mono muted">
+        <span class="accent">$</span> whoami — <span class="fg">Cybersecurity &amp; Networking Student</span> at Softwarica College, Dillibazar.
+      </p>
+      <p class="typing"><span id="typed"></span><span class="cursor">▋</span></p>
+
+      <div class="cta-row">
+        <a href="#contact" class="btn btn-primary">✉ Get in touch</a>
+        <a href="cv-biraj-acharya.pdf" download class="btn btn-outline">⬇ Download CV</a>
+        <a href="#case-study" class="btn-link mono">View case study →</a>
+      </div>
+
+      <dl class="meta">
+        <div><dt>Focus</dt><dd>Pentesting</dd></div>
+        <div><dt>Stack</dt><dd>Kali · Nmap</dd></div>
+        <div><dt>Status</dt><dd class="accent">Active</dd></div>
+      </dl>
+    </div>
+
+    <div class="terminal-card">
+      <div class="terminal-bar">
+        <div class="dots"><i></i><i></i><i></i></div>
+        <span>~/operator/biraj.acharya</span>
+        <span class="rec">●REC</span>
+      </div>
+      <div class="portrait">
+        <img src="assets/biraj.png" alt="Portrait of Biraj Acharya" />
+        <div class="scanline"></div>
+        <div class="badges">
+          <span class="badge primary">ID: 0xBA-2025</span>
+          <span class="badge">CLEARANCE · L3</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <div class="wrap">
+    <p class="section-tag">// 02 — Capabilities Matrix</p>
+    <h2>Operational toolset</h2>
+    <p class="muted lead">Daily-driver tools across offensive security, networking, and forensics.</p>
+
+    <div class="skills-grid">
+      <article class="card"><div class="row"><h3>Kali Linux</h3><span class="mono accent">88%</span></div><div class="bar"><span style="width:88%"></span></div><p class="muted small">Offensive tooling, recon, exploitation labs.</p></article>
+      <article class="card"><div class="row"><h3>Network Security</h3><span class="mono accent">90%</span></div><div class="bar"><span style="width:90%"></span></div><p class="muted small">Segmentation, hardening, traffic analysis.</p></article>
+      <article class="card"><div class="row"><h3>Nmap</h3><span class="mono accent">92%</span></div><div class="bar"><span style="width:92%"></span></div><p class="muted small">Service enumeration, NSE scripting, fingerprinting.</p></article>
+      <article class="card"><div class="row"><h3>Digital Forensics</h3><span class="mono accent">75%</span></div><div class="bar"><span style="width:75%"></span></div><p class="muted small">Disk/memory artifacts, chain of custody.</p></article>
+      <article class="card"><div class="row"><h3>Web Development</h3><span class="mono accent">80%</span></div><div class="bar"><span style="width:80%"></span></div><p class="muted small">HTML/CSS/JS, secure-by-default UI patterns.</p></article>
+      <article class="card"><div class="row"><h3>Wireshark</h3><span class="mono accent">82%</span></div><div class="bar"><span style="width:82%"></span></div><p class="muted small">Packet inspection, protocol decoding, IOCs.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section id="case-study" class="section alt">
+  <div class="wrap">
+    <p class="section-tag">// 03 — Case Study</p>
+    <h2>D03 — Network Segmentation</h2>
+    <p class="muted lead">A four-layer defense model for an internal application stack, validated with active probing and aligned to industry frameworks.</p>
+
+    <div class="case-grid">
+      <div class="card">
+        <h3 class="card-title">Defense-in-depth topology</h3>
+        <ul class="layers">
+          <li><span>INTERNET</span><em>untrusted</em></li>
+          <li><span>DMZ</span><em>edge proxy / WAF</em></li>
+          <li><span>Application tier</span><em>service mesh</em></li>
+          <li><span>Management plane</span><em>jumphost only</em></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Verification (terminal)</h3>
+<pre class="terminal-out"><span class="accent">$</span> nmap -sS -p 22,80,443 10.10.20.0/24
+<span class="muted">22/tcp  filtered  ssh</span>
+<span class="muted">80/tcp  open      http</span>
+<span class="muted">443/tcp open      https</span>
+
+<span class="accent">$</span> nc -vz mgmt.internal 22
+<span class="muted">Connection refused — segmentation OK</span></pre>
+      </div>
+    </div>
+
+    <div class="standards">
+      <span>NIST SP 800-190</span>
+      <span>CIS Kubernetes Benchmark</span>
+      <span>MITRE ATT&amp;CK</span>
+      <span>OWASP Docker Top 10</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="wrap">
+    <p class="section-tag">// 04 — Establish Connection</p>
+    <h2>Open a secure channel</h2>
+
+    <div class="contact-grid">
+      <div class="contact-list">
+        <a class="card contact-row" href="mailto:acharyabiraz@gmail.com"><div class="ico">✉</div><div><p class="lbl">Email</p><p>acharyabiraz@gmail.com</p></div></a>
+        <a class="card contact-row" href="tel:+9779848557402"><div class="ico">☏</div><div><p class="lbl">Phone</p><p>+977 9848557402</p></div></a>
+        <a class="card contact-row" href="https://www.linkedin.com/" target="_blank" rel="noopener"><div class="ico">in</div><div><p class="lbl">LinkedIn</p><p>Acharya Biraj</p></div></a>
+        <a class="card contact-row" href="#"><div class="ico">⌖</div><div><p class="lbl">Location</p><p>Dillibazar, Kathmandu</p></div></a>
+      </div>
+
+      <form class="card form" action="mailto:acharyabiraz@gmail.com" method="post" enctype="text/plain">
+        <p class="mono muted"><span class="accent">$</span> ./initiate --secure</p>
+        <div class="grid-2">
+          <label>Name<input required name="name" type="text" placeholder="Jane Doe" /></label>
+          <label>Email<input required name="email" type="email" placeholder="jane@company.com" /></label>
+        </div>
+        <label>Subject<input required name="subject" type="text" placeholder="Engagement inquiry" /></label>
+        <label>Message<textarea required name="message" rows="5" placeholder="Briefly describe your scope, environment, and timelines..."></textarea></label>
+        <button type="submit" class="btn btn-primary">➤ Send transmission</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap foot-inner">
+    <p class="mono muted">© <span id="year"></span> Biraj Acharya — Built on a hardened static stack.</p>
+    <p class="mono accent">uptime 99.99%</p>
+  </div>
+</footer>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Typing effect
+  (function(){
+    const phrases = [
+      "Securing networks. Hunting vulnerabilities.",
+      "Pentesting · Forensics · Defensive engineering.",
+      "Building resilient, zero-trust infrastructure."
+    ];
+    const el = document.getElementById('typed');
+    let p = 0, i = 0, deleting = false;
+    function tick(){
+      const cur = phrases[p];
+      el.textContent = cur.slice(0, i);
+      if (!deleting && i < cur.length) { i++; setTimeout(tick, 65); }
+      else if (deleting && i > 0) { i--; setTimeout(tick, 35); }
+      else {
+        if (!deleting) { deleting = true; setTimeout(tick, 1400); }
+        else { deleting = false; p = (p+1) % phrases.length; setTimeout(tick, 250); }
+      }
+    }
+    tick();
+  })();
+</script>
+</body>
+</html>
