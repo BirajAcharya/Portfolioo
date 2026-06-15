@@ -1,0 +1,50 @@
+name: Build and Validate Portfolio
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+    
+    - name: Build Docker Image
+      run: |
+        docker build -t portfolio:latest .
+        echo "✅ Docker image built successfully"
+    
+    - name: Validate HTML
+      run: |
+        docker run --rm -v $PWD:/app portfolio:latest sh -c "test -f /app/index.html && echo '✅ index.html exists' || exit 1"
+    
+    - name: Check CSS
+      run: |
+        docker run --rm -v $PWD:/app portfolio:latest sh -c "test -f /app/style.css && echo '✅ style.css exists' || exit 1"
+
+  security-scan:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Run Trivy Vulnerability Scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scan-ref: '.'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+    
+    - name: Upload Trivy Results to GitHub Security
+      uses: github/codeql-action/upload-sarif@v3
+      if: always()
+      with:
+        sarif_file: 'trivy-results.sarif'
